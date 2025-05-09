@@ -1,0 +1,5 @@
+account_replication_type = "ZRS"
+resource_group_name = "rg-test01-poc"
+location = "northeurope"
+name = "testpoctestluiz"
+account_kind = "StorageV2"
