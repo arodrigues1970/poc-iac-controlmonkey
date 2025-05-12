@@ -5,7 +5,7 @@ resource "azurerm_virtual_machine" "poc-vm-002" {
   identity {
     type = "SystemAssigned"
   }
-  vm_size = "Standard_B8ms"
+  vm_size = "Standard_B2ms"
 
   storage_os_disk {
     name          = "poc-vm-002_OsDisk_1_9304552d5f654e9591bca800be8d5c2f"
