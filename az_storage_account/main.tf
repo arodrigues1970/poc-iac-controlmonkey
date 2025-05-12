@@ -1,3 +1,4 @@
+# storage
 resource "azurerm_storage_account" "this" {
   account_replication_type          = var.account_replication_type
   account_tier                      = var.account_tier
