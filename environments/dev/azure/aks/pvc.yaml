@@ -1,0 +1,53 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: storage
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-standard
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+mountOptions:
+  [-file_mode=0700
+  -dir_mode=0777
+  -mfsymlinks
+  -uid=1000
+  -gid=1000
+  -nobrl
+  -cache=none]
+volumeBindingMode: Immediate
+
+#####################
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: volume-01
+spec:
+  capacity:
+    storage: 64Gi
+  volumeMode: Filesystem
+  accessModes: 
+  - ReadWriteMany
+  storageClassName: storage
+  volumes:
+    vsphereVolume:
+      volumePath: "/volume_01"
+      fsType: ext4
+
+#####################
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: storageclaim01
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "storage"
+  volumeName: "volume-01"
+  resources:
+    requests:
+      storage: 64Gi
+    limits:
+      storage: 64Gi
