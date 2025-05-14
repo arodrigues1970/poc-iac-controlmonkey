@@ -72,7 +72,7 @@ resource "azurerm_virtual_machine" "poc-vm-001" {
   identity {
     type = "SystemAssigned"
   }
-  vm_size = "Standard_B2ms"
+  vm_size = "Standard_B2s"
 
   storage_os_disk {
     name          = "poc-vm-001_OsDisk_1_79fd2ad69d77442181cc4b02caa319a5"
@@ -99,8 +99,8 @@ resource "azurerm_virtual_machine" "poc-vm-001" {
   }
   tags = {
     createdByName  = "Renato Pereira (novobanco DSI)"
-    modifiedByName = "Renato Pereira (novobanco DSI)"
+    modifiedByName = "Luiz Arantes Nascimento (RE novobanco DSI)"
     createdOnDate  = "2025-05-03 15:29:49"
-    modifiedOnDate = "2025-05-03 15:38:21"
+    modifiedOnDate = "2025-05-13 09:36:32"
   }
 }
